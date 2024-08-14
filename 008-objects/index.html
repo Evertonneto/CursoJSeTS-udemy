@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+    <section class="card">
+        <h1>Calculadora</h1>
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" class="display"></td>
+            </tr>
+
+            <tr>
+                <td><button class="btn btn-clear">C</button></td>
+                <td><button class="btn btn-num">(</button></td>
+                <td><button class="btn btn-num">)</button></td>
+                <td><button class="btn btn-num">/</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-num">7</button></td>
+                <td><button class="btn btn-num">8</button></td>
+                <td><button class="btn btn-num">9</button></td>
+                <td><button class="btn btn-num">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-num">4</button></td>
+                <td><button class="btn btn-num">5</button></td>
+                <td><button class="btn btn-num">6</button></td>
+                <td><button class="btn btn-num">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-num">1</button></td>
+                <td><button class="btn btn-num">2</button></td>
+                <td><button class="btn btn-num">3</button></td>
+                <td><button class="btn btn-num">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-num">.</button></td>
+                <td><button class="btn btn-num">0</button></td>
+                <td><button class="btn btn-del">&laquo;</button></td>
+                <td><button class="btn btn-equal">=</button></td>
+            </tr>
+        </table>
+    </section>
+    <script>
+        const objA = {
+            chave: 'A'
+        }
+
+        const objB = {
+            chave: 'B'
+        }
+        const objC = {
+            chave: 'C'
+        }
+
+        Object.setPrototypeOf(objB, objA)
+        Object.setPrototypeOf(objC, objB)
+
+        console.log(objC)
+
+
+        function Produto(nome, preco) {
+            this.nome = nome;
+            this.preco = preco;
+        }
+
+        Produto.prototype.aumento = function (value) {
+            this.preco += value
+        }
+
+        Produto.prototype.desconto = function (value) {
+            this.preco -= value
+        }
+
+        function Caneca(nome, preco, material) {
+            Produto.call(this, nome, preco)
+            this.material = material
+        }
+
+        Caneca.prototype = Object.create(Produto.prototype)
+        Caneca.prototype.constructor = Caneca
+
+        Caneca.prototype.desconto = function (value) {
+            this.preco -= this.preco * (value / 100)
+        }
+
+        let canecaCeramica = new Caneca('Caneca', 120, 'Cerâmica')
+        canecaCeramica.desconto(10)
+        console.log(canecaCeramica.preco) // 50
+
+
+        function pessoa(nome, idade) {
+            const prototypePessoa = {
+                falar() {
+                    console.log(`olá, meu nome é ${this.nome}`)
+                }
+            }
+
+            return Object.create(prototypePessoa, {
+                nome: { value: nome, configurable: false },
+                idade: { value: idade, configurable: false }
+            })
+        }
+
+        const f1 = pessoa('Everton', 22)
+
+
+
+
+
+
+
+        function Pessoa(nome, idade, peso) {
+            Object.defineProperties(this, {
+                nome: {
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                    value: nome
+
+                },
+                idade: {
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                    value: idade
+                },
+                peso: {
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                    value: peso
+                }
+            })
+
+        }
+
+        let p1 = new Pessoa('Everton', 22, 90)
+
+        console.log(p1.nome)
+        console.log(p1.idade)
+        console.log(p1.peso)
+
+        const pessoas = [
+            { id: 3, nome: 'Everton' },
+            { id: 2, nome: 'Everton' },
+            { id: 1, nome: 'Everton' },
+        ]
+
+        let pessoasMap = new Map()
+
+        for (const pessoa of pessoas) {
+            const { id } = pessoa
+            pessoasMap.set(id, { ...pessoa })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -11,7 +11,7 @@ function converterCPFemNumber(cpf){
     console.log(cpfValidado.toString() === cpfArrayNumbers.toString())
 }
 
-converterCPFemNumber('008.344.124-70')
+converterCPFemNumber('008.344.224-22')
 
 function calculoPrimeiroDigito(cpf){
     let count = 10

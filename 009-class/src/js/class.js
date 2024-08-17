@@ -47,3 +47,40 @@ class Pessoa{
 let pessoa = new Pessoa('Everton','Nunes')
 
 console.log(pessoa.nome)
+
+
+class PessoaFisica extends Pessoa{
+    constructor(nome,sobrenome,idade,cpf){
+        super(nome,sobrenome)
+        this.idade = idade 
+        this.cpf = cpf
+    }
+    
+
+
+}
+
+let pessoa1 = new PessoaFisica("Everton","Nunes",22,"708.172.222-34")
+console.log(pessoa1.cpf)
+
+
+class Controle{
+    constructor(marca){
+        this.marca = marca
+        this.volume = 0
+    }
+    // Método de instÂncia
+    aumentarVolume(){
+        this.volume += 2
+    }
+    dimnuirVolume(){
+        this.volume -= 2
+    }
+
+    //Método estático ou de classe
+    static soma(x,y){
+        return x + y
+    }
+}
+
+console.log(Controle.soma(1,2))

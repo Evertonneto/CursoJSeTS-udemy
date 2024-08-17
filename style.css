@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(47, 56, 226);
+    margin: 10px 20px;
+    font-family: Helvetica, sans-serif;
+}
+
+.timer{
+    border-radius: 10px;
+    background-color: rgb(8, 33, 33);
+    text-align: center;
+    padding: 20px;
+}
+.timer h2{
+    color: white;
+}
+
+.clock{
+    margin: 20px 0px;
+    font-size: 60px;
+    color: white;
+}
+
+.pausado{
+    color: red;
+}

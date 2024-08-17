@@ -84,6 +84,8 @@ function ConstructorFunctionWithProperties(nome,sobrenome,idade){
 }
 
 
+
+
 const p3 = new ConstructorFunctionWithProperties('Everton','Nunes',22)
 const p4 = new ConstructorFunctionWithProperties('Jorge','Matheus',32)
 
@@ -155,3 +157,46 @@ let pessoa1 = new Pessoa('Everton',22,90)
 console.log(pessoa1.nome)
 console.log(pessoa1.idade)
 console.log(pessoa1.peso)
+
+let obj = Object.create({},{
+    name:{
+        value:"teste"
+    }
+})
+
+console.log(obj.name)
+
+
+function ConstructorFunction2(nome,sobrenome){
+	let nomePrivado = nome
+	let sobrenomePrivado = sobrenome
+
+	Object.defineProperties(this,{
+		nome:{
+			enumerable:true,
+			set: function (novoNome) {
+				nomePrivado = novoNome
+			},
+			get: function(){
+				return nomePrivado
+			}
+		},
+		sobreNome:{
+			enumerable:true,
+			set: function (novoSobrenome) {
+				sobrenomePrivado = novoSobrenome
+			},
+			get: function(){
+				return nomePrivado
+			}
+
+		}
+	})
+
+}
+
+let pessoaEverton = new ConstructorFunction2('Everton','Nunes')
+
+pessoaEverton.nome = "Teste 1"
+
+console.log(pessoaEverton.nome)

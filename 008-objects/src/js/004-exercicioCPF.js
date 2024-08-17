@@ -33,7 +33,7 @@ function calculoPrimeiroDigito(cpf){
 
     let cpfComSegundoDigito = calculoSegundoDigito(cpf)
 
-    return cpfComSegundoDigito
+    return cpfComSegundoDigito 
 }
 
 function calculoSegundoDigito(cpf){

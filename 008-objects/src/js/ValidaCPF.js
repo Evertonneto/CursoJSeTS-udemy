@@ -55,7 +55,7 @@ ValidaCPF.prototype.isSequencia = function() {
   return sequencia === this.cpfLimpo;
 };
 
-const cpf = new ValidaCPF('708.173.214-37');
+const cpf = new ValidaCPF('111.111.111-11');
 
 if(cpf.valida()) {
   console.log('Cpf válido');

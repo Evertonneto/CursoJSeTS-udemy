@@ -16,6 +16,8 @@
 // console.log(pessoa)
 // console.log(pessoa.nome)
 
+// atributos privados em classes
+
 let _nome = Symbol('nome')
 let _sobrenome = Symbol('sobrenome')
 
@@ -49,19 +51,22 @@ let pessoa = new Pessoa('Everton','Nunes')
 console.log(pessoa.nome)
 
 
+// Herança com classes
+
+
 class PessoaFisica extends Pessoa{
     constructor(nome,sobrenome,idade,cpf){
         super(nome,sobrenome)
         this.idade = idade 
         this.cpf = cpf
     }
-    
-
-
 }
 
 let pessoa1 = new PessoaFisica("Everton","Nunes",22,"708.172.222-34")
 console.log(pessoa1.cpf)
+
+
+
 
 
 class Controle{
@@ -73,7 +78,7 @@ class Controle{
     aumentarVolume(){
         this.volume += 2
     }
-    dimnuirVolume(){
+    diminuirVolume(){
         this.volume -= 2
     }
 

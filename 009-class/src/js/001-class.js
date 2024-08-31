@@ -68,6 +68,21 @@ console.log(pessoa1.cpf)
 
 
 
+//* statics methods
+
+class Calculos{
+    constructor(a,b){
+        this.a,this.b
+    }
+
+    static soma(a,b){
+        return a + b
+    }
+
+}
+
+console.log(Calculos.soma(1,3))
+
 
 class Controle{
     constructor(marca){

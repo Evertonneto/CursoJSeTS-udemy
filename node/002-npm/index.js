@@ -1,5 +1,4 @@
 const fs = require('fs').promises
-const { read } = require('fs')
 const path = require('path')
 
 // async function readdir(rootDir){
@@ -40,4 +39,4 @@ async function walk(files,rootDir){
     }
 }
 
-readdir('./');
+readdir('../');
